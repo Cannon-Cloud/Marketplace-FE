@@ -2,10 +2,15 @@ import React from "react";
 import { toast } from "react-toastify";
 import { login } from "../actions/auth";
 import LoginForm from "../components/LoginForm";
+import { useDispatch } from "react-redux";
 
-const Login = () => {
+const Login = (props) => {
+  const dispatch = useDispatch();
+  const history = props.history;
+
   const onLoginHandler = async (enteredUserData) => {
     const userData = enteredUserData;
+
     console.log(userData);
     try {
       let res = await login(userData);
@@ -13,7 +18,12 @@ const Login = () => {
         console.log(
           "SAVE USER RES IN REDUX AND IN LOCAL STORAGE THEN REDIRECT ===>"
         );
-        console.log(res.data);
+        window.localStorage.setItem("auth", JSON.stringify(res.data));
+        dispatch({
+          type: "LOGGED_IN_USER",
+          payload: res.data,
+        });
+        history.push("/");
       }
     } catch (err) {
       console.log(err);
