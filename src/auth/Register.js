@@ -1,19 +1,22 @@
 import React from "react";
 import RegisterForm from "../components/RegisterForm";
-import axios from "axios";
+import { toast } from "react-toastify";
+import { register } from "../actions/auth";
 
-const Register = () => {
+const Register = (props) => {
+  const history = props.history;
+
   const onSaveRegistrationDataHandler = async (enteredUserData) => {
     const userData = enteredUserData;
     try {
-      const res = await axios.post(
-        `http://localhost:8000/api/register`,
-        userData
-      );
+      const res = await register(userData);
       // console.table(userData);
       console.log(`REGISTERED USER =====>`, res);
+      toast.success("Registration successful. Please login.");
+      history.push("/login");
     } catch (err) {
       console.log(err);
+      if (err.response.status === 400) toast.error(err.response.data);
     }
   };
   return (
