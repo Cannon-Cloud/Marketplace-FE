@@ -1,10 +1,20 @@
 import React from "react";
 import RegisterForm from "../components/RegisterForm";
+import axios from "axios";
 
 const Register = () => {
-  const onSaveRegistrationDataHandler = (enteredUserData) => {
+  const onSaveRegistrationDataHandler = async (enteredUserData) => {
     const userData = enteredUserData;
-    console.table(userData);
+    try {
+      const res = await axios.post(
+        `http://localhost:8000/api/register`,
+        userData
+      );
+      // console.table(userData);
+      console.log(`REGISTERED USER =====>`, res);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <React.Fragment>
