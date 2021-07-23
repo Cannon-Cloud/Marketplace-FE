@@ -1,13 +1,8 @@
 import { useState } from "react";
 
-const RegisterForm = (props) => {
-  const [name, setName] = useState("");
+const LoginForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const nameChangeHandler = (event) => {
-    setName(event.target.value);
-  };
 
   const emailChangeHandler = (event) => {
     setEmail(event.target.value);
@@ -19,59 +14,45 @@ const RegisterForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
     const userData = {
-      name: name,
       email: email,
       password: password,
     };
 
-    props.onSaveRegistrationData(userData);
-    setName("");
-    setEmail("");
-    setPassword("");
+    props.onLogin(userData);
   };
 
   return (
     <form onSubmit={submitHandler} className="mt-3">
       <div className="form-group mb-3">
-        <label className="form-label">Your Name</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Enter name"
-          value={name}
-          onChange={nameChangeHandler}
-        ></input>
-      </div>
-      <div className="form-group mb-3">
-        <label className="form-label">Your Email</label>
+        <label className="form-label">Email Address</label>
         <input
           type="email"
           className="form-control"
-          placeholder="Enter email"
+          placeholder="Enter Email"
           value={email}
           onChange={emailChangeHandler}
         ></input>
       </div>
+
       <div className="form-group mb-3">
-        <label className="form-label">Your Password</label>
+        <label className="form-label">Password</label>
         <input
           type="password"
           className="form-control"
-          placeholder="Enter password"
+          placeholder="Enter Password"
           value={password}
           onChange={passwordChangeHandler}
         ></input>
       </div>
       <button
-        disabled={!name || !email || !password || password.length < 6}
+        disabled={!email || !password || password.length < 6}
         className="btn btn-primary"
       >
-        Submit
+        Login
       </button>
     </form>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
