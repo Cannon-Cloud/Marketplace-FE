@@ -6,7 +6,7 @@ if (window.localStorage.getItem("auth")) {
   userState = null;
 }
 
-export const authReducer = (state = { userState }, action) => {
+export const authReducer = (state = userState, action) => {
   switch (action.type) {
     case "LOGGED_IN_USER":
       return { ...state, ...action.payload };
