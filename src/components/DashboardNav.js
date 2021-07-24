@@ -1,16 +1,28 @@
 import { Link } from "react-router-dom";
 
 const DashbaordNav = () => {
+  const active = window.location.pathname;
+
   return (
     <ul className="nav nav-tabs">
       <li className="nav-item">
-        <Link to="/dashboard">Your Bookings</Link>
+        <Link
+          className={`nav-link ${active === "/dashboard" && "active"} `}
+          to="/dashboard"
+        >
+          Your Bookings
+        </Link>
       </li>
       <li className="nav-item">
-        <Link to="/dashboard/seller">Your Hotels</Link>
+        <Link
+          className={`nav-link ${active === "/dashboard/seller" && "active"}`}
+          to="/dashboard/seller"
+        >
+          Your Hotels
+        </Link>
       </li>
     </ul>
   );
 };
 
-export default DashbaordNav
+export default DashbaordNav;

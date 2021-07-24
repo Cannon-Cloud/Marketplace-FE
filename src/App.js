@@ -7,6 +7,7 @@ import Login from "./auth/Login";
 import Register from "./auth/Register";
 import TopNav from "./components/TopNav";
 import Dashboard from "./user/Dashboard";
+import DashboardSeller from "./user/DashboardSeller";
 import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
@@ -19,6 +20,11 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute
+          exact
+          path="/dashboard/seller"
+          component={DashboardSeller}
+        />
       </Switch>
     </BrowserRouter>
   );
