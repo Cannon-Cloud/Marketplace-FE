@@ -8,6 +8,7 @@ import Register from "./auth/Register";
 import TopNav from "./components/TopNav";
 import Dashboard from "./user/Dashboard";
 import DashboardSeller from "./user/DashboardSeller";
+import NewListing from "./listings/NewListing";
 import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           path="/dashboard/seller"
           component={DashboardSeller}
         />
+        <PrivateRoute exact path="/listings/new" component={NewListing} />
       </Switch>
     </BrowserRouter>
   );

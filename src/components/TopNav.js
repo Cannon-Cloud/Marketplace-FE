@@ -23,6 +23,12 @@ const TopNav = () => {
       </Link>
 
       {auth !== null && (
+        <Link className="nav-link" to="/dashboard">
+          Dashboard
+        </Link>
+      )}
+
+      {auth !== null && (
         <a href onClick={logout} className="nav-link pointer">
           Logout
         </a>
