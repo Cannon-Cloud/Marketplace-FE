@@ -9,6 +9,7 @@ import TopNav from "./components/TopNav";
 import Dashboard from "./user/Dashboard";
 import DashboardSeller from "./user/DashboardSeller";
 import NewListing from "./listings/NewListing";
+import StripleCallback from "./stripe/StripeCallback";
 import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
@@ -27,6 +28,11 @@ const App = () => {
           component={DashboardSeller}
         />
         <PrivateRoute exact path="/listings/new" component={NewListing} />
+        <PrivateRoute
+          exact
+          path="/stripe/callback"
+          component={StripleCallback}
+        />
       </Switch>
     </BrowserRouter>
   );

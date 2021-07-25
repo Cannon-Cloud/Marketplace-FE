@@ -11,7 +11,6 @@ const Login = (props) => {
   const onLoginHandler = async (enteredUserData) => {
     const userData = enteredUserData;
 
-    console.log(userData);
     try {
       let res = await login(userData);
       if (res.data) {

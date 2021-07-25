@@ -16,6 +16,7 @@ const DashboardSeller = () => {
     try {
       let res = await createConnectAccount(auth.token);
       console.log(res); // get loginlink
+      window.location.href = res.data;
     } catch (err) {
       console.log(err);
       toast.error("Stripe connect failed. Try again.");
@@ -78,8 +79,8 @@ const DashboardSeller = () => {
       </div>
       {auth &&
       auth.user &&
-      auth.user.strip_seller &&
-      auth.user.strip_seller.charges_enabled
+      auth.user.stripe_seller &&
+      auth.user.stripe_seller.charges_enabled
         ? connected()
         : notConnected()}
     </React.Fragment>
