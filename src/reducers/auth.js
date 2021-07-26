@@ -3,7 +3,7 @@ let userState;
 if (window.localStorage.getItem("auth")) {
   userState = JSON.parse(window.localStorage.getItem("auth"));
 } else {
-  userState = null;
+  userState = null; // {}
 }
 
 export const authReducer = (state = userState, action) => {
