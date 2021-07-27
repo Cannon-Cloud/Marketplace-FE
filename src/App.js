@@ -12,6 +12,7 @@ import NewHotel from "./hotels/NewHotel";
 import StripleCallback from "./stripe/StripeCallback";
 import EditHotel from "./hotels/EditHotel";
 import PrivateRoute from "./components/PrivateRoute";
+import ViewHotel from "./hotels/ViewHotel";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
           component={StripleCallback}
         />
         <PrivateRoute exact path="/hotel/edit/:hotelId" component={EditHotel} />
+        <Route exact path="/hotel/:hotelId" component={ViewHotel} />
       </Switch>
     </BrowserRouter>
   );
