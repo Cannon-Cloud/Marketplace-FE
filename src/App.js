@@ -9,10 +9,12 @@ import TopNav from "./components/TopNav";
 import Dashboard from "./user/Dashboard";
 import DashboardSeller from "./user/DashboardSeller";
 import NewHotel from "./hotels/NewHotel";
-import StripleCallback from "./stripe/StripeCallback";
+import StripeCallback from "./stripe/StripeCallback";
 import EditHotel from "./hotels/EditHotel";
 import PrivateRoute from "./components/PrivateRoute";
 import ViewHotel from "./hotels/ViewHotel";
+import StripeSuccess from "./stripe/StripeSuccess";
+import StripeCancel from "./stripe/StripeCancel";
 
 const App = () => {
   return (
@@ -33,10 +35,16 @@ const App = () => {
         <PrivateRoute
           exact
           path="/stripe/callback"
-          component={StripleCallback}
+          component={StripeCallback}
         />
         <PrivateRoute exact path="/hotel/edit/:hotelId" component={EditHotel} />
         <Route exact path="/hotel/:hotelId" component={ViewHotel} />
+        <PrivateRoute
+          exact
+          path="/stripe/success/:hotelId"
+          component={StripeSuccess}
+        />
+        <PrivateRoute exact path="/stripe/cancel" component={StripeCancel} />
       </Switch>
     </BrowserRouter>
   );
