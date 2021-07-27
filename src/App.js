@@ -10,6 +10,7 @@ import Dashboard from "./user/Dashboard";
 import DashboardSeller from "./user/DashboardSeller";
 import NewHotel from "./hotels/NewHotel";
 import StripleCallback from "./stripe/StripeCallback";
+import EditHotel from "./hotels/EditHotel";
 import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
           path="/stripe/callback"
           component={StripleCallback}
         />
+        <PrivateRoute exact path="/hotel/edit/:hotelId" component={EditHotel} />
       </Switch>
     </BrowserRouter>
   );
