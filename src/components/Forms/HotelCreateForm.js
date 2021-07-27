@@ -13,7 +13,6 @@ const HotelCreateForm = (props) => {
     handleChange,
     handleImageChange,
     handleSubmit,
-    location,
     setLocation,
   } = props;
 
