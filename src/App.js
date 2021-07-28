@@ -15,6 +15,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import ViewHotel from "./hotels/ViewHotel";
 import StripeSuccess from "./stripe/StripeSuccess";
 import StripeCancel from "./stripe/StripeCancel";
+import SearchResult from "./hotels/SearchResult";
 
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
           component={StripeSuccess}
         />
         <PrivateRoute exact path="/stripe/cancel" component={StripeCancel} />
+        <Route exact path="/search-result" component={SearchResult} />
       </Switch>
     </BrowserRouter>
   );
